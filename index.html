@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CDGHelper" ng-strict-di>
+<head>
+  <meta charset="UTF-8">
+  <title>収束判定ゲームヘルパー</title>
+
+  <!-- third party library -->
+  <script src="scripts/lib/angular.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      CommonHTML: { matchFontHeight: false }
+    });
+  </script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+  <!-- models -->
+  <script src="scripts/utilities.js"></script>
+  <script src="scripts/models/Candidate.js"></script>
+  <script src="scripts/models/Cards/CardBase.js"></script>
+  <script src="scripts/models/Cards/CardExist.js"></script>
+  <script src="scripts/models/Cards/CardAll.js"></script>
+  <script src="scripts/models/Cards/CardLessThan.js"></script>
+  <script src="scripts/models/Cards/CardLessEqual.js"></script>
+  <script src="scripts/models/Cards/CardNotEqual.js"></script>
+  <script src="scripts/models/Cards/CardDiff.js"></script>
+  <script src="scripts/models/Cards/CardDiffEqualPair.js"></script>
+
+  <!-- module -->
+  <script src="scripts/module.js"></script>
+  <script src="scripts/service.js"></script>
+  <script src="scripts/ctrl.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+
+<body ng-controller="CDGCtrl as vm">
+  <div>
+    <h1>カード一覧</h1>
+    <table class="card-table" ng-repeat="cards in vm.card_groups">
+      <thead>
+        <tr>
+          <td>\( {{cards[0].get_condition_str()}} \)</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="card in cards">
+          <td>
+            <p>\( {{vm.get_card_name(card)}} \)</p>
+            <p ng-if="vm.is_used(card)">使用済</p>
+            <button ng-if="!vm.is_used(card)" ng-click="vm.use_card(card)">使う</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h1>結果</h1>
+    <p>残り{{vm.match_candidates_num}}通り</p>
+  </div>
+  <div>
+    <button ng-click="vm.show_candidates()">候補を表示</button>
+    <div ng-if="vm.show_candidates_status">
+      <div ng-repeat="cand in vm.candidates">
+        <p ng-if="cand.alive()">{{vm.get_candidate_nums(cand)}}</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

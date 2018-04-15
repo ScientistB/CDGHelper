@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.card-table {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card-table thead {
+    text-align: center;
+}
+
+.card-table p {
+    margin: 0;
+}
+
+.card-table td {
+    background: #ddd;
+}
