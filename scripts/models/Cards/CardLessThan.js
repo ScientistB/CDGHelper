@@ -21,7 +21,7 @@ var CardLessThan = (function() {
     return CardLessThan;
 
     function is_match(cand_nums) {
-        return cand_nums[this.left-1] <= cand_nums[this.right-1];
+        return cand_nums[this.left-1] < cand_nums[this.right-1];
     }
 
     function get_condition_str() {
