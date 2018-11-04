@@ -6,13 +6,13 @@
 class CDGController {
     public static $inject = ['CDGService'];
 
-    public show_candidate_status: boolean; // 候補の表示状態
+    public show_candidates_status: boolean; // 候補の表示状態
     public card_groups: object[]; // カード
     public candidates: object[]; // 候補
     public match_candidates_num: number; // 生き残っている候補数
 
     constructor(private CDGService) {
-        this.show_candidate_status = false;
+        this.show_candidates_status = false;
         this.card_groups = CDGService.init_cards();
         this.candidates = [];
         CDGService.init_candidates(this.candidates);
@@ -27,7 +27,7 @@ class CDGController {
 
     // 候補の表示切り替え
     public show_candidates() {
-        this.show_candidate_status = !this.show_candidate_status;
+        this.show_candidates_status = !this.show_candidates_status;
     }
 
     // カード名の取得
@@ -40,8 +40,8 @@ class CDGController {
         return card.is_used();
     }
 
-    // 残り候補数の取得
-    public get_candidate_nums(candidate): number {
+    // 候補の取得
+    public get_candidate_nums(candidate: Candidate): number[] {
         return candidate.get_nums();
     }
 }

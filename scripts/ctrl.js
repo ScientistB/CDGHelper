@@ -5,7 +5,7 @@
 var CDGController = /** @class */ (function () {
     function CDGController(CDGService) {
         this.CDGService = CDGService;
-        this.show_candidate_status = false;
+        this.show_candidates_status = false;
         this.card_groups = CDGService.init_cards();
         this.candidates = [];
         CDGService.init_candidates(this.candidates);
@@ -18,7 +18,7 @@ var CDGController = /** @class */ (function () {
     };
     // 候補の表示切り替え
     CDGController.prototype.show_candidates = function () {
-        this.show_candidate_status = !this.show_candidate_status;
+        this.show_candidates_status = !this.show_candidates_status;
     };
     // カード名の取得
     CDGController.prototype.get_card_name = function (card) {
@@ -28,7 +28,7 @@ var CDGController = /** @class */ (function () {
     CDGController.prototype.is_used = function (card) {
         return card.is_used();
     };
-    // 残り候補数の取得
+    // 候補の取得
     CDGController.prototype.get_candidate_nums = function (candidate) {
         return candidate.get_nums();
     };
@@ -38,3 +38,4 @@ var CDGController = /** @class */ (function () {
 angular
     .module('CDGHelper')
     .controller('CDGController', CDGController);
+//# sourceMappingURL=ctrl.js.map
