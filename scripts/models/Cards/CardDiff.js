@@ -1,29 +1,34 @@
 'use strict';
-
-var CardDiff = (function() {
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var CardDiff = /** @class */ (function (_super) {
+    __extends(CardDiff, _super);
     /**
      * 差がvalueのペアが存在する
      * @param value
      * @constructor
      */
     function CardDiff(value) {
-        CardBase.call(this);
-        this.value = value;
+        var _this = _super.call(this) || this;
+        _this.value = value;
+        return _this;
     }
-
-    inherits(CardDiff, CardBase);
-    override(CardDiff, is_match);
-    override(CardDiff, _make_name);
-    override(CardDiff, get_condition_str);
-
-    return CardDiff;
-
-    function is_match(cand_nums) {
-        const len = cand_nums.length;
-        var i, j;
-        for (i = 0; i < len; i++) {
-            for (j = 0; j < len; j++) {
-                if (i === j) continue;
+    CardDiff.prototype.is_match = function (cand_nums) {
+        var len = cand_nums.length;
+        for (var i = 0; i < len; i++) {
+            for (var j = 0; j < len; j++) {
+                // 同じ数列の項は比較しない
+                if (i === j) {
+                    continue;
+                }
                 var diff = cand_nums[i] - cand_nums[j];
                 if (diff === this.value || diff === -this.value) {
                     return true;
@@ -31,13 +36,13 @@ var CardDiff = (function() {
             }
         }
         return false;
-    }
-
-    function get_condition_str() {
-        return "\\exists m,n~m\\neq n";
-    }
-
-    function _make_name() {
-        return "|a_m-a_n|=" + this.value;
-    }
-})();
+    };
+    CardDiff.prototype.get_condition_str = function () {
+        return '\\exists m,n~m\\neq n';
+    };
+    CardDiff.prototype._make_name = function () {
+        return '|a_m-a_n|=' + this.value;
+    };
+    return CardDiff;
+}(CardBase));
+//# sourceMappingURL=CardDiff.js.map
