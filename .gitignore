@@ -1,4 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
-karma.conf.js
+node_modules
 memo.md
