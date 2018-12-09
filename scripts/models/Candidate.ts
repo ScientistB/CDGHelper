@@ -8,12 +8,11 @@ class Candidate {
     private unmatched_cards: object[];
 
     /**
-     * @param {Number} a1 候補の数字1つ目
-     * @param {Number} a2 2つ目
-     * @param {Number} a3 3つめ
-     * @constructor
+     * @param a1 候補の数字1つ目
+     * @param a2 2つ目
+     * @param a3 3つめ
      */
-    constructor(private a1: number, a2: number, a3: number) {
+    constructor(a1: number, a2: number, a3: number) {
         this.a = [a1, a2, a3];
         this.unmatched_cards = [];
     }
@@ -27,7 +26,6 @@ class Candidate {
 
     /**
      * 候補の数字を配列で返す
-     * @return {Array}
      */
     public get_nums(): number[] {
         return this.a;

@@ -15,7 +15,6 @@ var CardLessThan = /** @class */ (function (_super) {
      * left < right
      * @param left 左辺値
      * @param right 右辺値
-     * @constructor
      */
     function CardLessThan(left, right) {
         var _this = _super.call(this) || this;

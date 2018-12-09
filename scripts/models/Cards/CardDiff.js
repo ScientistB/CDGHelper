@@ -13,8 +13,6 @@ var CardDiff = /** @class */ (function (_super) {
     __extends(CardDiff, _super);
     /**
      * 差がvalueのペアが存在する
-     * @param value
-     * @constructor
      */
     function CardDiff(value) {
         var _this = _super.call(this) || this;

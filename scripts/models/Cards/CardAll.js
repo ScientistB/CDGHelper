@@ -11,10 +11,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var CardAll = /** @class */ (function (_super) {
     __extends(CardAll, _super);
-    /**
-     * @param value
-     * @constructor
-     */
     function CardAll(value) {
         var _this = _super.call(this) || this;
         _this.value = value;

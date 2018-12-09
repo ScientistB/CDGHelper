@@ -9,8 +9,8 @@ class CDGService {
         /**
          * 変数が1つのカードの初期化
          * @param constructor カードのコンストラクタ
-         * @param  min 最小値
-         * @param  max 最大値
+         * @param min 最小値
+         * @param max 最大値
          * @return カードオブジェクトの配列
          */
         function single(constructor: any, min: number, max: number): CardBase[] {

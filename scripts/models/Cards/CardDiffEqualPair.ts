@@ -5,7 +5,7 @@ class CardDiffEqualPair extends CardBase {
         super();
     }
 
-    public is_match(cand_nums: number[]) {
+    public is_match(cand_nums: number[]): boolean {
         const len = cand_nums.length;
         for (let l = 0; l < len; l++) {
             for (let n = 0; n < len; n++) {
@@ -24,11 +24,11 @@ class CardDiffEqualPair extends CardBase {
         return false;
     }
 
-    public get_condition_str() {
+    public get_condition_str(): string {
         return '';
     }
 
-    protected _make_name() {
+    protected _make_name(): string {
         return '\\exists l,m,n~l\\neq n~|a_l-a_m|=|a_m-a_n|';
     }
 }

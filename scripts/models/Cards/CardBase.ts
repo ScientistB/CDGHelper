@@ -17,7 +17,7 @@ abstract class CardBase {
     /**
      * カードの名前の取得
      */
-    public get_name() {
+    public get_name(): string {
         if (angular.isUndefined(this.name)) {
             this.name = this._make_name();
         }
@@ -39,7 +39,7 @@ abstract class CardBase {
     /**
      * カードを使用済み状態にする
      */
-    public use_card() {
+    public use_card(): void {
         this.used = true;
     }
 
@@ -50,7 +50,6 @@ abstract class CardBase {
 
     /**
      * カードの画面表示用の文字列を生成する抽象メソッド
-     * @protected
      */
     protected abstract _make_name(): string;
 }

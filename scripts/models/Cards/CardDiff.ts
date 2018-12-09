@@ -1,19 +1,14 @@
 'use strict';
 
 class CardDiff extends CardBase {
-    public value: number;
-
     /**
      * 差がvalueのペアが存在する
-     * @param value
-     * @constructor
      */
-    constructor(value: number) {
+    constructor(private value: number) {
         super();
-        this.value = value;
     }
 
-    public is_match(cand_nums: number[]) {
+    public is_match(cand_nums: number[]): boolean {
         const len = cand_nums.length;
         for (let i = 0; i < len; i++) {
             for (let j = 0; j < len; j++) {
@@ -31,11 +26,11 @@ class CardDiff extends CardBase {
         return false;
     }
 
-    public get_condition_str() {
+    public get_condition_str(): string {
         return '\\exists m,n~m\\neq n';
     }
 
-    protected _make_name() {
+    protected _make_name(): string {
         return '|a_m-a_n|=' + this.value;
     }
 }

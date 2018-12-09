@@ -4,13 +4,11 @@
  */
 var Candidate = /** @class */ (function () {
     /**
-     * @param {Number} a1 候補の数字1つ目
-     * @param {Number} a2 2つ目
-     * @param {Number} a3 3つめ
-     * @constructor
+     * @param a1 候補の数字1つ目
+     * @param a2 2つ目
+     * @param a3 3つめ
      */
     function Candidate(a1, a2, a3) {
-        this.a1 = a1;
         this.a = [a1, a2, a3];
         this.unmatched_cards = [];
     }
@@ -22,7 +20,6 @@ var Candidate = /** @class */ (function () {
     };
     /**
      * 候補の数字を配列で返す
-     * @return {Array}
      */
     Candidate.prototype.get_nums = function () {
         return this.a;

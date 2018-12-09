@@ -1,22 +1,19 @@
 'use strict';
 
 class CardExist extends CardBase {
-    public value: number;
-
-    constructor(value: number) {
+    constructor(private value: number) {
         super();
-        this.value = value;
     }
 
-    public is_match(cand_nums: number[]) {
+    public is_match(cand_nums: number[]): boolean {
         return cand_nums.indexOf(this.value) > -1;
     }
 
-    public get_condition_str() {
+    public get_condition_str(): string {
         return '\\exists n';
     }
 
-    protected _make_name() {
+    protected _make_name(): string {
         return 'a_n=' + this.value;
     }
 }
