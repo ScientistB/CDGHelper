@@ -1,34 +1,37 @@
 'use strict';
-
-var CardLessThan = (function() {
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var CardLessThan = /** @class */ (function (_super) {
+    __extends(CardLessThan, _super);
     /**
      * left < right
-     * @param {Number} left 左辺値
-     * @param {Number} right 右辺値
+     * @param left 左辺値
+     * @param right 右辺値
      * @constructor
      */
     function CardLessThan(left, right) {
-        CardBase.call(this);
-        this.left = left;
-        this.right = right;
+        var _this = _super.call(this) || this;
+        _this.left = left;
+        _this.right = right;
+        return _this;
     }
-
-    inherits(CardLessThan, CardBase);
-    override(CardLessThan, is_match);
-    override(CardLessThan, get_condition_str);
-    override(CardLessThan, _make_name);
-
+    CardLessThan.prototype.is_match = function (cand_nums) {
+        return cand_nums[this.left - 1] < cand_nums[this.right - 1];
+    };
+    CardLessThan.prototype.get_condition_str = function () {
+        return '<';
+    };
+    CardLessThan.prototype._make_name = function () {
+        return 'a_' + this.left + '<' + 'a_' + this.right;
+    };
     return CardLessThan;
-
-    function is_match(cand_nums) {
-        return cand_nums[this.left-1] < cand_nums[this.right-1];
-    }
-
-    function get_condition_str() {
-        return "<";
-    }
-
-    function _make_name() {
-        return "a_" + this.left + "<" + "a_" + this.right;
-    }
-})();
+}(CardBase));
+//# sourceMappingURL=CardLessThan.js.map
