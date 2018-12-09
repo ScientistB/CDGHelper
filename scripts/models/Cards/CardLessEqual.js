@@ -1,34 +1,37 @@
 'use strict';
-
-var CardLessEqual = (function () {
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var CardLessEqual = /** @class */ (function (_super) {
+    __extends(CardLessEqual, _super);
     /**
      * left ≦ right
-     * @param {number} left 左辺値
-     * @param {number} right 右辺値
+     * @param left 左辺値
+     * @param right 右辺値
      * @constructor
      */
     function CardLessEqual(left, right) {
-        CardBase.call(this);
-        this.left = left;
-        this.right = right;
+        var _this = _super.call(this) || this;
+        _this.left = left;
+        _this.right = right;
+        return _this;
     }
-
-    inherits(CardLessEqual, CardBase);
-    override(CardLessEqual, is_match);
-    override(CardLessEqual, _make_name);
-    override(CardLessEqual, get_condition_str);
-
+    CardLessEqual.prototype.is_match = function (cand_nums) {
+        return cand_nums[this.left - 1] <= cand_nums[this.right - 1];
+    };
+    CardLessEqual.prototype.get_condition_str = function () {
+        return '\\leq';
+    };
+    CardLessEqual.prototype._make_name = function () {
+        return 'a_' + this.left + '\\leq a_' + this.right;
+    };
     return CardLessEqual;
-
-    function is_match(cand_nums) {
-        return cand_nums[this.left-1] <= cand_nums[this.right-1];
-    }
-
-    function get_condition_str() {
-        return "\\leq";
-    }
-
-    function _make_name() {
-        return "a_" + this.left + "\\leq a_" + this.right;
-    }
-})();
+}(CardBase));
+//# sourceMappingURL=CardLessEqual.js.map
