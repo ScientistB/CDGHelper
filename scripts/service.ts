@@ -13,7 +13,11 @@ class CDGService {
          * @param max 最大値
          * @return カードオブジェクトの配列
          */
-        function single(constructor: any, min: number, max: number): CardBase[] {
+        function single<T extends CardBase>(
+            constructor: {new(val: number): T; },
+            min: number,
+            max: number,
+        ): CardBase[] {
             const cards: CardBase[] = [];
             for (let i = min; i <= max; ++i) {
                 cards.push(new constructor(i));
@@ -28,7 +32,11 @@ class CDGService {
          * @param max 最大値
          * @return カードオブジェクトの配列
          */
-        function double(constructor: any, min: number, max: number): CardBase[] {
+        function double<T extends CardBase>(
+            constructor: {new(left: number, right: number): T; },
+            min: number,
+            max: number,
+        ): CardBase[] {
             const cards: CardBase[] = [];
             for (let i = min; i <= max; ++i) {
                 for (let j = min; j <= max; ++j) {
@@ -47,7 +55,11 @@ class CDGService {
          * @param max 最大値
          * @return カードオブジェクトの配列
          */
-        function double_no_order(constructor: any, min: number, max: number): CardBase[] {
+        function double_no_order<T extends CardBase>(
+            constructor: {new(left: number, right: number): T; },
+            min: number,
+            max: number,
+        ): CardBase[] {
             const cards: CardBase[] = [];
             for (let i = min; i <= max; ++i) {
                 for (let j = i + 1; j <= max; j++) {
